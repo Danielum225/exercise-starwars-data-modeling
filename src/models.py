@@ -31,10 +31,15 @@ class Planet(Base):
     population = Column(Integer, nullable=False)
 
 class Favourites(Base):
-    __tablename__ = 'favourites'
+    __tablename__ = 'planets-favourites'
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('user.id'))
     planet_id = Column(Integer, ForeignKey('planet.id'))
+
+class Favourites(Base):
+    __tablename__ = 'characters-favourites'
+    id = Column(Integer, primary_key=True)
+    user_id = Column(Integer, ForeignKey('user.id'))
     character_id = Column(Integer, ForeignKey('character.id'))
 
     def to_dict(self):
